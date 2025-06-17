@@ -3,43 +3,39 @@ module.exports = {
   title: "Prototype",
   menu: [{
     icon: "python.png",
-    title: "Python Project",
+    text: "Python Project",
     menu: [{
-      title: "New Python Project",
-      description: "Set up a minimal Python project",
+      text: "New Python Project",
       href: "python/new.js"
     }, {
-      title: "New Pytorch Python Project",
-      description: "Automatically determine the correct version of Pytorch for each platform",
+      text: "New Pytorch Python Project",
       href: "python/pytorch.js"
     }, {
-      title: "Clone a Python Project",
+      text: "Clone a Python Project",
       href: "python/clone.js"
     }, {
-      title: "Clone a Python Project (Pytorch)",
+      text: "Clone a Python Project (Pytorch)",
       description: "Clone a python project that uses Pytorch",
       href: "python/clone.js"
     }]
   }, {
     icon: "nodejs.png",
-    title: "Node.js Project",
+    text: "Node.js Project",
     menu: [{
-      title: "New Node.js Project",
+      text: "New Node.js Project",
       href: "nodejs/new.js"
     }, {
-      title: "Clone a Node.js Project",
+      text: "Clone a Node.js Project",
       href: "nodejs/clone.js"
     }]
   }, {
     icon: "command/minimal.png",
     text: "CLI App Launcher",
     menu: [{
-      title: "Instant CLI Launcher",
-      description: "CLI apps without separate install steps (npx, uvx, etc.)",
+      text: "Instant CLI Launcher",
       href: "cli/instant.js"
     }, {
-      title: "Installable CLI Launcher",
-      description: "CLI apps that require install steps",
+      text: "Installable CLI Launcher",
       href: "cli/install.js"
     }]
   }]
