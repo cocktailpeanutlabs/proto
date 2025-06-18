@@ -15,6 +15,17 @@ module.exports = {
         raw: `\r\ncopying ${src} to ${dest}\r\n`
       })
       await fs.promises.cp(src, dest, { recursive: true })
+
+      await kernel.exec({
+        message: [
+          "git init",
+          "git add .",
+          "git commit -am init"
+        ],
+        path: req.cwd
+      }, (e) => {
+        ondata(e) 
+      })
     }
   }]
 }

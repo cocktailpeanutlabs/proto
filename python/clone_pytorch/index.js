@@ -61,6 +61,17 @@ module.exports = {
 
         // 2. Store the input
         await fs.promises.writeFile(path.resolve(dest, "config.json"), JSON.stringify(req.input, null, 2))
+
+        await kernel.exec({
+          message: [
+            "git init",
+            "git add .",
+            "git commit -am init"
+          ],
+          path: req.cwd
+        }, (e) => {
+          ondata(e) 
+        })
       }
     }
   ]

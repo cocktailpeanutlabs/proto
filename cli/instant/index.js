@@ -31,6 +31,8 @@ module.exports = {
             "git commit -am init"
           ],
           path: req.cwd
+        }, (e) => {
+          ondata(e) 
         })
       },
     }
