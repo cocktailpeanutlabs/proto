@@ -28,7 +28,7 @@ module.exports = {
           key: "install_command",
           title: "Intall command",
           description: "The python launch command (ex: 'python app.py')",
-          default: "uv pip install -r requirements.txt"
+          default: "uv pip install -r requirements.txt",
           required: true
         }, {
           key: "install_path",
