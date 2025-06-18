@@ -2,7 +2,7 @@ module.exports = {
   version: "4.0",
   title: "Prototype",
   menu: [{
-    icon: "python.png",
+    image: "python.png",
     text: "Python Project",
     menu: [{
       text: "New Python Project",
@@ -19,7 +19,7 @@ module.exports = {
       href: "python/clone.js"
     }]
   }, {
-    icon: "nodejs.png",
+    image: "nodejs.png",
     text: "Node.js Project",
     menu: [{
       text: "New Node.js Project",
@@ -29,7 +29,7 @@ module.exports = {
       href: "nodejs/clone.js"
     }]
   }, {
-    icon: "command/minimal.png",
+    image: "command/minimal.png",
     text: "CLI App Launcher",
     menu: [{
       text: "Instant CLI Launcher",
