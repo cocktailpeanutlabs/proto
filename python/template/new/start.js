@@ -33,10 +33,9 @@ module.exports = {
       next: null
     },
     {
-      id: "error",
-      method: "log",
+      method: "notify",
       params: {
-        raw: "\r\nTo automatically launch the web app in a new tab, the app code must print the launch URL in the terminal..."
+        html: "To automatically launch the web app in a new tab, make sure the app prints the launched app's URL in the terminal."
       },
     },
   ]
