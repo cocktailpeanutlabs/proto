@@ -9,7 +9,7 @@ module.exports = {
   run: [{
     method: async (req, ondata, kernel) => {
       console.log({ req })
-      let src = path.resolve(__dirname, "template/new")
+      let src = path.resolve(__dirname, "template")
       let dest = req.cwd
       ondata({
         raw: `\r\ncopying ${src} to ${dest}\r\n`

@@ -52,7 +52,7 @@ module.exports = {
         */
         console.log({ req })
         // 1. clone the template to the cwd
-        let src = path.resolve(__dirname, "template/clone")
+        let src = path.resolve(__dirname, "template")
         let dest = req.cwd
         ondata({
           raw: `\r\ncopying ${src} to ${dest}\r\n`
