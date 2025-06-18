@@ -6,45 +6,45 @@ module.exports = {
     text: "Python Project",
     menu: [{
       text: "New Python Project",
-      href: "python/new.js",
-      readme: "python/new.md"
+      href: "python/new/index.js",
+      readme: "python/new/README.md"
     }, {
       text: "New Pytorch Python Project",
-      href: "python/pytorch.js",
-      readme: "python/pytorch.md"
+      href: "python/new_pytorch/index.js",
+      readme: "python/new_pytorch/README.md"
     }, {
       text: "Clone a Python Project",
-      href: "python/clone.js",
-      readme: "python/clone.md"
+      href: "python/clone/index.js",
+      readme: "python/clone/README.md"
     }, {
       text: "Clone a Python Project (Pytorch)",
       description: "Clone a python project that uses Pytorch",
-      href: "python/clone.js",
-      readme: "python/clone_pytorch.md"
+      href: "python/clone_pytorch/index.js",
+      readme: "python/clone_pytorch/README.md"
     }]
   }, {
     image: "nodejs/nodejs.png",
     text: "Node.js Project",
     menu: [{
       text: "New Node.js Project",
-      href: "nodejs/new.js",
-      readme: "nodejs/new.md"
+      href: "nodejs/new/index.js",
+      readme: "nodejs/new/README.md"
     }, {
       text: "Clone a Node.js Project",
-      href: "nodejs/clone.js",
-      readme: "nodejs/clone.md"
+      href: "nodejs/clone/index.js",
+      readme: "nodejs/clone/README.md"
     }]
   }, {
     image: "cli/minimal.png",
     text: "CLI App Launcher",
     menu: [{
       text: "Instant CLI Launcher",
-      href: "cli/instant.js",
-      readme: "cli/instant.md"
+      href: "cli/instant/index.js",
+      readme: "cli/instant/README.md"
     }, {
       text: "Installable CLI Launcher",
-      href: "cli/install.js",
-      readme: "cli/install.md"
+      href: "cli/installable/index.js",
+      readme: "cli/installable/README.md"
     }]
   }]
 }
