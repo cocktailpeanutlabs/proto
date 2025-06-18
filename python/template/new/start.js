@@ -35,7 +35,7 @@ module.exports = {
     {
       method: "notify",
       params: {
-        html: "To automatically launch the web app in a new tab, make sure the app prints the launched app's URL in the terminal."
+        html: "If the app prints its URL on launch (ex: 'Server running at http://localhost:8080'), the launcher script will detect it and open the app in a new tab automatically."
       },
     },
   ]
