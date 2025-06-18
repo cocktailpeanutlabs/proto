@@ -5,7 +5,6 @@ module.exports = {
       method: "shell.run",
       params: {
         venv: "env",                // Edit this to customize the venv folder path
-        path: "app",
         message: [
           `git clone ${config.url} app`
         ],

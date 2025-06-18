@@ -1,5 +1,15 @@
+const config = require('./config.json')
 module.exports = {
   run: [
+    {
+      method: "shell.run",
+      params: {
+        venv: "env",                // Edit this to customize the venv folder path
+        message: [
+          `git clone ${config.url} app`
+        ],
+      },
+    },
     // Delete this step if your project does not use torch
     {
       method: "script.start",
@@ -14,22 +24,15 @@ module.exports = {
         }
       }
     },
-    // Edit this step with your custom install commands
     {
       method: "shell.run",
       params: {
         venv: "env",                // Edit this to customize the venv folder path
-        path: "app",
+        path: `${config.install_path}`,
         message: [
-          "uv pip install -r requirements.txt"
+          `${config.install_command}`,
         ],
       }
     },
-    {
-      method: "shell.run",
-      params: {
-        message: "npm install -g @anthropic-ai/claude-code",
-      }
-    }
   ]
 }
