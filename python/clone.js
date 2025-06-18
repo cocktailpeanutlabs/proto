@@ -61,9 +61,7 @@ module.exports = {
 
         // 2. Store the input
         await fs.promises.writeFile(path.resolve(dest, "config.json"), JSON.stringify(req.input, null, 2))
-
-
       }
     }
-  }]
+  ]
 }
