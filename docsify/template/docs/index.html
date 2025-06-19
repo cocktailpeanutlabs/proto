@@ -17,21 +17,34 @@
 //  //    coverpage: true,
 //      themeColor: "black",
 //    }
+    function rewriteImgSrcPlugin(basePath) {
+      return (hook, vm) => {
+        hook.afterEach(html => {
+          // Create a temporary container to parse HTML
+          const container = document.createElement('div');
+          container.innerHTML = html;
+
+          // Rewrite <img> src attributes
+          container.querySelectorAll('[src]').forEach(img => {
+            const src = img.getAttribute('src');
+            if (src && !src.match(/^https?:\/\//) && !src.startsWith(basePath)) {
+              img.setAttribute('src', basePath + src);
+            }
+          });
+
+          return container.innerHTML;
+        });
+      };
+    }
     document.addEventListener("DOMContentLoaded", async () => {
       let res = await fetch('docsify.config.json').then((response) => response.json())
       window.$docsify = {
-        doneEach: () => {
-          const basePath = window.$docsify.basePath;
-          document.querySelectorAll('#main [src]').forEach(img => {
-            const src = img.getAttribute('src');
-            console.log({ src, basePath })
-            if (src && !src.startsWith('http') && !src.startsWith(basePath)) {
-              img.src = basePath + src;
-            }
-          });
-        },
+        plugins: [
+          rewriteImgSrcPlugin(window.$docsify.basePath)
+        ],
         ...res
       }
+
 
 
       const script = document.createElement('script');
