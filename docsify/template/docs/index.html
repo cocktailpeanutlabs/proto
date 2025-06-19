@@ -40,7 +40,7 @@
       let res = await fetch('docsify.config.json').then((response) => response.json())
       window.$docsify = {
         plugins: [
-          rewriteImgSrcPlugin(window.$docsify.basePath)
+          rewriteImgSrcPlugin(res.basePath)
         ],
         ...res
       }
