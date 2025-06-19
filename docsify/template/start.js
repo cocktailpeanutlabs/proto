@@ -5,6 +5,7 @@ module.exports = {
   run: [{
     method: async (req, ondata, kernel) => {
       let config_path = path.resolve(req.cwd, "docs/docsify.config.json")
+      console.log({ config_path })
       let config = await kernel.require(config_path)
       console.log({ config })
       if (config._basePath) {
