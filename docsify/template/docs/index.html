@@ -10,14 +10,21 @@
 <body>
   <div id="app"></div>
   <script>
-    window.$docsify = {
-      name: '',
-      repo: '',
-      maxLevel: 3,
-  //    coverpage: true,
-      themeColor: "black",
-    }
-    document.addEventListener("DOMContentLoaded", () => {
+//    window.$docsify = {
+//      name: '',
+//      repo: '',
+//      maxLevel: 3,
+//  //    coverpage: true,
+//      themeColor: "black",
+//    }
+    document.addEventListener("DOMContentLoaded", async () => {
+      let res = await fetch('docsify.config.json').then((response) => response.json())
+      window.$docsify = res
+
+      const script = document.createElement('script');
+      script.src = 'docsify.min.js'
+      document.body.appendChild(script);
+
       setTimeout(() => {
         let el = document.querySelector("#" + location.hash.split("=")[1])
         if (el) {
@@ -35,6 +42,8 @@
       })
     })
   </script>
+  <!--
   <script src="docsify.min.js"></script>
+  -->
 </body>
 </html>

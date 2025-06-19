@@ -46,5 +46,10 @@ module.exports = {
       href: "cli/installable/index.js",
       readme: "cli/installable/README.md"
     }]
+  }, {
+    image: "docsify/icon.png",
+    text: "Instant Documentation",
+    href: "docsify/index.js",
+    readme: "docsify/README.md"
   }]
 }
