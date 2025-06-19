@@ -20,7 +20,7 @@
     document.addEventListener("DOMContentLoaded", async () => {
       let res = await fetch('docsify.config.json').then((response) => response.json())
       window.$docsify = {
-        doneEach = () => {
+        doneEach: () => {
           const basePath = window.$docsify.basePath;
           document.querySelectorAll('#main [src]').forEach(img => {
             const src = img.getAttribute('src');
