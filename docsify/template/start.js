@@ -1,6 +1,37 @@
 module.exports = {
   daemon: true,
   run: [{
+    method: async (req, ondata, kernel) => {
+      let config_path = path.resolve(req.cwd, "docs/docsify.config.json")
+      let config = await kernel.require(config_path)
+      console.log({ config })
+      if (config._basePath) {
+        return { _basePath }
+      }
+    }
+  }, {
+    when: "{{input && input._basePath}}",
+    method: "shell.run",
+    params: {
+      message: "python -m http.server --directory {{input._basePath}}"
+      on: [{
+        event: "/port ([0-9]+)/i"
+        done: true,
+      }]
+    }
+  }, {
+    method: async (req, ondata, kernel) => {
+      console.log("req.input", req.input)
+      if (req.input && req.input.event && req.input.event.length > 1) {
+        let port = req.input.event[1]
+        let config_path = path.resolve(req.cwd, "docs/docsify.config.json")
+        let config = await kernel.require(config_path)
+        config.basePath = `http://localhost:${port}/`
+        console.log("updated config", config)
+        await fs.promises.writeFile(config_path, JSON.stringify(config, null, 2))
+      }
+    }
+  }, {
     method: "shell.run",
     params: {
       message: "docsify serve .",
