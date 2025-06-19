@@ -1,6 +1,5 @@
 const path = require('path')
 const fs = require('fs')
-let port
 module.exports = {
   daemon: true,
   run: [{
@@ -8,16 +7,15 @@ module.exports = {
       let config_path = path.resolve(req.cwd, "docs/docsify.config.json")
       let config = await kernel.require(config_path)
       console.log({ config })
-      port = await kernel.port()
       if (config._basePath) {
-        return { _basePath: config._basePath, port }
+        return { _basePath: config._basePath }
       }
     }
   }, {
     when: "{{input && input._basePath}}",
     method: "shell.run",
     params: {
-      message: "python -m http.server {{input.port}} --directory {{input._basePath}}",
+      message: "python -m http.server 0 --directory {{input._basePath}}",
       on: [{
         event: "/port ([0-9]+)/i",
         done: true,
@@ -25,9 +23,9 @@ module.exports = {
     }
   }, {
     method: async (req, ondata, kernel) => {
-      console.log("req.input", req.input, "port", port)
+      console.log("req.input", req.input)
       if (req.input && req.input.event && req.input.event.length > 1) {
-//        let port = req.input.event[1]
+        let port = req.input.event[1]
         let config_path = path.resolve(req.cwd, "docs/docsify.config.json")
         let config = await kernel.require(config_path)
         config.basePath = `http://localhost:${port}/`
