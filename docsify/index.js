@@ -46,7 +46,7 @@ module.exports = {
     },
     {
       method: async (req, ondata, kernel) => {
-        config.basePath = req.input.local
+        config.basePath = req.input.paths[0]
         await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
         await fs.promises.writeFile(path.resolve(req.cwd, "docs/docsify.config.json"), JSON.stringify(config, null, 2))
         
