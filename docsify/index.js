@@ -49,17 +49,15 @@ module.exports = {
     },
     {
       method: async (req, ondata, kernel) => {
-        config._basePath = req.input.paths[0]
-        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
-        await fs.promises.writeFile(path.resolve(req.cwd, "docs/docsify.config.json"), JSON.stringify(config, null, 2))
-        await new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve()
-          }, 10000)
-        })
+        //config._basePath = req.input.paths[0]
+        //await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
+        //await fs.promises.writeFile(path.resolve(req.cwd, "docs/docsify.config.json"), JSON.stringify(config, null, 2))
         
-//        await fs.promises.cp(req.input.paths[0], path.resolve(req.cwd, 'docs'), { recursive: true, force: true })
-//        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
+        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
+        await fs.promises.cp(req.input.paths[0], path.resolve(req.cwd, 'docs/repo'), { recursive: true, force: true })
+
+        config.basePath = "/repo/"
+        await fs.promises.writeFile(path.resolve(req.cwd, "docs/docsify.config.json"), JSON.stringify(config, null, 2))
       },
       next: null    // terminate
     },
@@ -89,16 +87,6 @@ module.exports = {
         // update the basePath to repo
         config.basePath = "/repo/"
         await fs.promises.writeFile(path.resolve(req.cwd, "docs/docsify.config.json"), JSON.stringify(config, null, 2))
-        console.log("BEFORE")
-        console.time("TIMER")
-        await new Promise((resolve, reject) => {
-          setTimeout(() => {
-            console.log("RESOLVE TIMER")
-            resolve()
-          }, 10000)
-        })
-        console.timeEnd("TIMER")
-        console.log("AFTER")
       },
       next: null,
     },
@@ -119,11 +107,6 @@ module.exports = {
         await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
         config.basePath = req.input.url
         await fs.promises.writeFile(path.resolve(req.cwd, "docs/docsify.config.json"), JSON.stringify(config, null, 2))
-        await new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve()
-          }, 10000)
-        })
       },
       next: null,
     },
