@@ -15,9 +15,9 @@ module.exports = {
     when: "{{input && input._basePath}}",
     method: "shell.run",
     params: {
-      message: "python -m http.server 0 --directory {{input._basePath}}",
+      message: "npx -y http-server {{input._basePath}} --cors",
       on: [{
-        event: "/port ([0-9]+)/i",
+        event: "/:([0-9]+)/i",
         done: true,
       }]
     }
