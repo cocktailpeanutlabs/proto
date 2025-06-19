@@ -13,9 +13,9 @@ module.exports = {
     when: "{{input && input._basePath}}",
     method: "shell.run",
     params: {
-      message: "python -m http.server --directory {{input._basePath}}"
+      message: "python -m http.server --directory {{input._basePath}}",
       on: [{
-        event: "/port ([0-9]+)/i"
+        event: "/port ([0-9]+)/i",
         done: true,
       }]
     }
