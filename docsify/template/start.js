@@ -7,15 +7,16 @@ module.exports = {
       let config_path = path.resolve(req.cwd, "docs/docsify.config.json")
       let config = await kernel.require(config_path)
       console.log({ config })
+      let port = await kernel.port()
       if (config._basePath) {
-        return { _basePath: config._basePath }
+        return { _basePath: config._basePath, port }
       }
     }
   }, {
     when: "{{input && input._basePath}}",
     method: "shell.run",
     params: {
-      message: "python -m http.server --directory {{input._basePath}}",
+      message: "python -m http.server {{input.port}} --directory {{input._basePath}}",
       on: [{
         event: "/port ([0-9]+)/i",
         done: true,
