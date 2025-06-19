@@ -82,7 +82,7 @@ module.exports = {
         }, ondata)
 
         // update the basePath to repo
-        config.basePath = "/repo/")
+        config.basePath = "/repo/"
         await fs.promises.writeFile(path.resolve(req.cwd, "docs/docsify.config.json"), JSON.stringify(config, null, 2))
       },
       next: null,
