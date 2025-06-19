@@ -89,11 +89,16 @@ module.exports = {
         // update the basePath to repo
         config.basePath = "/repo/"
         await fs.promises.writeFile(path.resolve(req.cwd, "docs/docsify.config.json"), JSON.stringify(config, null, 2))
+        console.log("BEFORE")
+        console.time("TIMER")
         await new Promise((resolve, reject) => {
           setTimeout(() => {
+            console.log("RESOLVE TIMER")
             resolve()
           }, 10000)
         })
+        console.timeEnd("TIMER")
+        console.log("AFTER")
       },
       next: null,
     },
