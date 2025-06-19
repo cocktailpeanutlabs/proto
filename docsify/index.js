@@ -69,12 +69,17 @@ module.exports = {
     },
     {
       method: async (req, ondata, kernel) => {
+        // copy templates
+        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
+
+        // clone into the docs folder
         await kernel.exec({
           message: `git clone ${req.input.url} repo`,
-          path: req.cwd
+          path: path.resolve(req.cwd, "docs")
         }, ondata)
-        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
-        config._basePath = path.resolve(req.cwd, "repo")
+
+        // update the basePath to repo
+        config.basePath = path.resolve(req.cwd, "docs/repo")
         await fs.promises.writeFile(path.resolve(req.cwd, "docs/docsify.config.json"), JSON.stringify(config, null, 2))
       },
       next: null,
