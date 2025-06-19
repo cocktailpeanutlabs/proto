@@ -5,6 +5,9 @@ let config = {
   repo: '',
   maxLevel: 3,
   themeColor: "black",
+  requestHeaders: {
+    'cache-control': 'no-cache'
+  }
 }
 module.exports = {
   run: [
