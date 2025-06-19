@@ -61,7 +61,7 @@ module.exports = {
         title: "Enter a git URL",
         form: [{
           title: "Git URL",
-          description: "Enter a Git URL to clone from"
+          description: "Enter a Git URL to clone from",
           key: "url",
         }]
       }
