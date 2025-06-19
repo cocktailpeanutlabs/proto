@@ -55,7 +55,7 @@ module.exports = {
         await new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve()
-          }, 3000)
+          }, 10000)
         })
         
 //        await fs.promises.cp(req.input.paths[0], path.resolve(req.cwd, 'docs'), { recursive: true, force: true })
@@ -92,7 +92,7 @@ module.exports = {
         await new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve()
-          }, 3000)
+          }, 10000)
         })
       },
       next: null,
@@ -117,7 +117,7 @@ module.exports = {
         await new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve()
-          }, 3000)
+          }, 10000)
         })
       },
       next: null,
