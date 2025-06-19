@@ -47,6 +47,7 @@ module.exports = {
     {
       method: async (req, ondata, kernel) => {
         config.basePath = req.input.local
+        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
         await fs.promises.writeFile(path.resolve(req.cwd, "docs/docsify.config.json"), JSON.stringify(config, null, 2))
         
 //        await fs.promises.cp(req.input.paths[0], path.resolve(req.cwd, 'docs'), { recursive: true, force: true })
@@ -72,9 +73,9 @@ module.exports = {
           message: `git clone ${req.input.url} repo`,
           path: req.cwd
         }, ondata)
+        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
         config.basePath = path.resolve(req.cwd, "repo")
         await fs.promises.writeFile(path.resolve(req.cwd, "docs/docsify.config.json"), JSON.stringify(config, null, 2))
-        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
       },
       next: null,
     },
@@ -92,9 +93,9 @@ module.exports = {
     },
     {
       method: async (req, ondata, kernel) => {
+        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
         config.basePath = req.input.url
         await fs.promises.writeFile(path.resolve(req.cwd, "docs/docsify.config.json"), JSON.stringify(config, null, 2))
-        await fs.promises.cp(path.resolve(__dirname, "template"), req.cwd, { recursive: true, force: true })
       },
       next: null,
     },
