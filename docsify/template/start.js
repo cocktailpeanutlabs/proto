@@ -15,7 +15,8 @@ module.exports = {
     when: "{{input && input._basePath}}",
     method: "shell.run",
     params: {
-      message: "npx -y http-server {{input._basePath}} --cors -c-1",
+      //message: "npx -y http-server {{input._basePath}} --cors -c-1",
+      message: "npx -y live-server {{input._basePath}} --port=={{port}} --no-browser --cors",
       on: [{
         event: "/:([0-9]+)/i",
         done: true,
