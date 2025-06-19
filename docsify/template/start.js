@@ -1,3 +1,5 @@
+const path = require('path')
+const fs = require('fs')
 module.exports = {
   daemon: true,
   run: [{
