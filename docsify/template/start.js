@@ -33,6 +33,11 @@ module.exports = {
         config.basePath = `http://localhost:${port}/`
         console.log("updated config", config)
         await fs.promises.writeFile(config_path, JSON.stringify(config, null, 2))
+        await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve()
+          }, 1000)
+        })
       }
     }
   }, {
