@@ -8,7 +8,7 @@ module.exports = {
       let config = await kernel.require(config_path)
       console.log({ config })
       if (config._basePath) {
-        return { _basePath }
+        return { _basePath: config._basePath }
       }
     }
   }, {
