@@ -19,6 +19,16 @@
 //    }
     document.addEventListener("DOMContentLoaded", async () => {
       let res = await fetch('docsify.config.json').then((response) => response.json())
+      res.doneEach = () => {
+        const basePath = window.$docsify.basePath;
+        document.querySelectorAll('#main [src]').forEach(img => {
+          const src = img.getAttribute('src');
+          if (src && !src.startsWith('http') && !src.startsWith(basePath)) {
+            img.src = basePath + src;
+          }
+        });
+      }
+
       window.$docsify = res
 
       const script = document.createElement('script');
