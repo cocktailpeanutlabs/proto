@@ -8,7 +8,7 @@ module.exports = {
         title: "Command Launcher",
         form: [{
           title: "Enter the launch command",
-          key: "command"
+          key: "start"
         }, {
           title: "Virtual environment",
           description: "optional. only for python based CLI apps.",
