@@ -1,7 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 module.exports = {
-  env
   run: [
 //    {
 //      method: "input",
