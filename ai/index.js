@@ -24,7 +24,7 @@ module.exports = {
         await fs.promises.rename(path.resolve(req.cwd, "gitignore"), path.resolve(req.cwd, ".gitignore"))
 
       },
-      next: null    // terminate
+//      next: null    // terminate
     },
     {
       method: "web.open",
