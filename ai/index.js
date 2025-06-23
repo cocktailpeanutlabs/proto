@@ -26,6 +26,14 @@ module.exports = {
       },
       next: null    // terminate
     },
+    {
+      method: "web.open",
+      params: {
+        uri: "{{cwd}}",
+        type: "dev",
+        target: "_top"
+      }
+    }
 //    {
 //      id: "git",
 //      method: "input",

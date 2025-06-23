@@ -18,3 +18,7 @@
 - When writing shell commands in scripts using the `shell.run` API, the commands must be cross platform.
 - Try to minimize the actual shell command used. This can be achieved by utilizing all the available parameters provided by `shell.run` API.
 - Python apps must run in virtual environments, which can be run by running `shell.run` with a `venv` attribute to create or use a virtual environment at specific path
+
+# Tools
+- When installing python packages, use UV, it's already installed.
+- When installing NPM packages, use pnpm, it's already installed.
