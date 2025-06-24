@@ -8,7 +8,7 @@ module.exports = {
         path: "app",
         env: { },                   // Edit this to customize environment variables (see documentation)
         message: [
-          "pnpm run dev",
+          "npm run dev",
         ],
         on: [{
           // The regular expression pattern to monitor.

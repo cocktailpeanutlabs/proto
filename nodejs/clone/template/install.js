@@ -14,7 +14,6 @@ module.exports = {
     {
       method: "shell.run",
       params: {
-        path: "app",
         message: [
           "git clone {{input.url}} app"
         ],
@@ -25,7 +24,7 @@ module.exports = {
       params: {
         path: "app",
         message: [
-          "pnpm install"
+          "npm install"
         ],
       }
     },
